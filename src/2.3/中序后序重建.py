@@ -6,22 +6,19 @@ class TreeNode:
         self.left, self.right = None, None
 """
 
-
 class Solution:
     """
     @param inorder: A list of integers that inorder traversal of a tree
     @param postorder: A list of integers that postorder traversal of a tree
     @return: Root of a tree
     """
-
-    def buildTree(self, preorder, inorder):
+    def buildTree(self, inorder, postorder):
         # write your code here
-
-        if len(preorder) == 0:
+        if len(inorder)==0:
             return None
         else:
-            root = TreeNode(preorder[0])
+            root = TreeNode(postorder[-1])
             i = inorder.index(root.val)
-            root.left = self.buildTree(preorder[1:1 + i], inorder[:i])
-            root.right = self.buildTree(preorder[1 + i:], inorder[i + 1:])
+            root.left = self.buildTree(inorder[:i],postorder[:i])
+            root.right = self.buildTree(inorder[i+1:],postorder[i:-1])
             return root
