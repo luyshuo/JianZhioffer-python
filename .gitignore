@@ -1,1 +1,10 @@
-.idea
+*.pyc
+/Logs
+.DS_Store
+.idea/*
+src/.DS_Store
+*.jpg
+*.jpeg
+/.idea/
+*.log
+*.iml
